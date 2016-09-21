@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.contrato.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.contrato.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="contratos.edit({ contratoId: vm.contrato._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.contrato.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.contrato.user"
+            ng-bind="vm.contrato.user.displayName"></span>
+      <span ng-if="!vm.contrato.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.contrato.content"></p>
+</section>

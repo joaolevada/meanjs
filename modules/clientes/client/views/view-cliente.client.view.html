@@ -1,0 +1,29 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.cliente.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.cliente.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="clientes.edit({ clienteId: vm.cliente._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-danger" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>  
+  <div class="jumbotron">    
+    <h2 ng-bind="vm.cliente.codigo"></h2>
+    <h1 ng-bind="vm.cliente.nome"></h1>
+    <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.cliente.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.cliente.user"
+            ng-bind="vm.cliente.user.displayName"></span>
+      <span ng-if="!vm.cliente.user">Deleted User</span>
+    </em>
+  </small>
+  </div>  
+</section>

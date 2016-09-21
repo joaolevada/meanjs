@@ -1,0 +1,60 @@
+<section>
+  <div class="page-header">
+    <h1>Cliente</h1>
+    <p>{{vm.cliente._id ? 'Alterar dados do cliente' : 'Cadastrar cliente'}}</p>
+  </div>
+  <div class="col-sm-12">
+    <form name="vm.form.clienteForm" class="form-horizontal" ng-submit="vm.save(vm.form.clienteForm.$valid)" novalidate>
+      <fieldset>
+      
+        <!-- codigo -->
+        <div class="form-group" show-errors>                    
+          <label class="control-label col-sm-2" for="codigo">C&oacute;digo</label>
+          <div class="col-sm-2">
+            <input name="codigo" type="text" ng-model="vm.cliente.codigo" id="codigo" class="form-control" placeholder="C&oacute;digo" required>            
+          </div>          
+          <div ng-messages="vm.form.clienteForm.codigo.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">C&oacute;digo do cliente &eacute; obrigat&oacute;rio.</p>
+          </div>          
+        </div>            
+        
+          
+        <!-- nome -->
+        <div class="form-group" show-errors>                    
+          <label class="control-label col-sm-2" for="nome">Nome</label>
+          <div class="col-sm-4">
+            <input name="nome" type="text" ng-model="vm.cliente.nome" id="nome" class="form-control" placeholder="Nome" required>
+          </div>
+          <div ng-messages="vm.form.clienteForm.nome.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Nome do cliente &eacute; obrigat&oacute;rio.</p>
+          </div>          
+        </div>        
+
+        <!-- sexo -->
+        <div class="form-group">                    
+          <label class="control-label col-sm-2" for="sexo">Sexo</label>
+          <div class="col-sm-2">
+            <select ng-options="" name="sexo" type="" ng-model="vm.cliente.data_nascimento" id="data_nascimento" class="form-control">          
+          </div>
+        </div>
+
+        <div class="form-group col-sm-1"></div>        
+
+        <!-- data nascimento -->
+        <div class="form-group col-sm-2">                    
+          <label class="control-label" for="data_nascimento">Data nascimento</label>
+          <input name="data_nascimento" type="date" ng-model="vm.cliente.data_nascimento" id="data_nascimento" class="form-control">          
+        </div>
+        
+        <!-- submit -->
+        <div class="form-group col-sm-12">
+          <button type="submit" class="btn btn-primary btn-lg">{{vm.cliente._id ? 'Atualizar' : 'Cadastrar'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+        
+      </fieldset>
+    </form>
+  </div>
+</section>

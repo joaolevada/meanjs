@@ -1,0 +1,33 @@
+<section>  
+  <div class="page-header">
+    <div class="jumbotron text-center">
+      <h1>Funcion&aacute;rios</h1>
+      <p>Este s&atilde;o os funcion&aacute;rios da imobili&aacute;ria</p>
+    </div>
+  </div>
+    
+  <div class="list-group">
+    <div ng-repeat="funcionario in vm.funcionarios"
+      class="list-group-item">
+      <h4 class="list-group-item-heading">      
+        <a ui-sref="funcionarios.view({ funcionarioId: funcionario._id })">        
+          {{ funcionario.nome }}           
+        </a>
+        <span ng-show="funcionario.supervisor_caixa == 'S'" class="label label-primary">Supervisor</span>                
+      </h4>
+      <p class="list-group-item-text">        
+        login: <strong> {{ funcionario.nome_guerra }} </strong>
+      </p>
+      <p ng-show="funcionario.corretor == 'S'" class="list-group-item-text text-success">
+        corretor
+      </p>
+      <p ng-show="funcionario.data_demissao" class="list-group-item-text text-danger">
+        demitido
+      </p>
+    </div>
+  </div>   
+  
+  <div class="alert alert-warning text-center" ng-if="vm.funcionarios.$resolved && !vm.funcionarios.length">
+    No Funcionarios yet, why don't you <a ui-sref="funcionarios.create">create one</a>?
+  </div>
+</section>
